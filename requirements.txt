@@ -1,0 +1,14 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+scikit-image
+opencv-python
+torch
+torchvision
+pytorch-lightning
+pydicom
+ipykernel
+albumentations
+tqdm
+ultralytics
