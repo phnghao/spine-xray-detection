@@ -74,7 +74,12 @@ def main():
     os.makedirs(out_dir, exist_ok= True)
     ann = read_csv(ann_file)
     meta_df = read_csv(meta_file)
-    meta = meta_df.set_index('image_id').to_dict('index')
+    meta = (
+    meta_df
+    .drop_duplicates(subset='image_id')
+    .set_index('image_id')
+    .to_dict('index')
+    )
 
     groups = list(ann.groupby('image_id'))
     cls = get_classes()
