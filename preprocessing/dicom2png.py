@@ -13,7 +13,7 @@ def cvt_equalHist(dcm_file_pth):
     """
     Convert dicom to png by equalHist
     """
-    dcm_file = pydicom.dcmread(dcm_file_pth)
+    dcm_file = pydicom.dcmread(dcm_file_pth, force = True)
     if dcm_file.BitsStored in (10,12):
         dcm_file.BitsStored = 16
     try:
@@ -33,7 +33,7 @@ def cvt_voi_lut(dcm_file_path, voi_lut = True):
     """
     Convert dicom to png by built-in function apply_voi_lut from pydicom
     """
-    dcm = pydicom.dcmread(dcm_file_path)
+    dcm = pydicom.dcmread(dcm_file_path, force=True)
     try:
         dcm_img = apply_voi_lut(dcm.pixel_array, dcm) if voi_lut else dcm.pixel_array
     except Exception as error:
@@ -88,7 +88,7 @@ def main():
     dicom_files = list(inp_dir.glob('*dicom'))
     
     if args.debug:
-        dicom_files = dicom_files[:50]
+        dicom_files = dicom_files[:100]
         args.cpus = 1
 
     imple = Parallel(
