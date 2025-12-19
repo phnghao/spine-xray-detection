@@ -22,6 +22,7 @@ def cpy_img(img_id, root_dir, out_dir):
 
 def process(csv_file, root_dir, out_dir, n_jobs=4):
     df = pd.read_csv(csv_file)
+    df = df.dropna(subset=['xmin', 'ymin', 'xmax', 'ymax'])
     image_ids = df['image_id'].unique()
 
     results = Parallel(n_jobs=n_jobs, backend='multiprocessing')(
