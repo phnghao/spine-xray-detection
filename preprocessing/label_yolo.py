@@ -12,7 +12,14 @@ def convert_bbox(xmin, ymin, xmax, ymax, w, h):
     return cx, cy, bw ,bh
 
 def get_classes():
-    return {'Osteophytes':0, 'Spondylolysthesis':1, 'Disc space narrowing':2, 'Vertebral collapse':3, 'Foraminal stenosis':4,'Surgical implant':5, 'Other lesions':6}
+    return {'Osteophytes':0,
+            'Spondylolysthesis':1,
+            'Disc space narrowing':2,
+            'Vertebral collapse':3,
+            'Foraminal stenosis':4,
+            'Surgical implant':5,
+            'Other lesions':6
+            }
 
 def read_csv(csv_file):
     import pandas as pd
