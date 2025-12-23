@@ -23,10 +23,10 @@ REM =========================================
 
 set INPUT_DIR=./data/raw/train_images
 set OUTPUT_DIR=./data/images/train_images
-set CPUS=4
+set CPUS=8
 set LOG_FILE=./convert_train_log.txt
 
-set DEBUG=--debug
+set DEBUG=
 
 echo -----------------------------------------
 echo Converting TRAIN DICOM to PNG...
@@ -46,7 +46,7 @@ REM =========================================
 
 set INPUT_DIR=./data/raw/test_images
 set OUTPUT_DIR=./data/images/test_images
-set CPUS=4
+set CPUS=8
 set LOG_FILE=./convert_test_log.txt
 
 echo -----------------------------------------
