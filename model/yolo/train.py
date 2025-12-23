@@ -5,12 +5,22 @@ import argparse
 def train_yolo(data_yaml, epochs = 100, batch =4, imgsz = 640):
     device = 0 if torch.cuda.is_available() else 'cpu'
     model = YOLO('yolov8n.pt')
+
+    # Huấn luyện YOLO + Tăng cường dữ liệu
     model.train(
-        data = data_yaml ,
+        data="data.yaml",
         epochs=epochs,
-        imgsz=imgsz,
-        device = device, # 0 : GPU, else cpu 
-        batch = batch
+        imgsz=imgsz,    
+        batch=batch,        
+        degrees=10.0,
+        flipud=0.0,
+        fliplr=0.5,
+        mosaic=1.0,
+        mixup=0.1,
+        hsv_s=0.0,
+        hsv_v=0.4,
+        clahe=0.5,
+        blur=0.1,
     )
     return model
 
@@ -28,3 +38,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
