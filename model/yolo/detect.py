@@ -26,9 +26,9 @@ def draw_label(img, text, x, y, color):
 
     bg = [(x, y - text_h - padding * 2), (x + text_w + padding, y)]
 
-    cv.rectangle(img, bg[0], bg[1], (0, 0, 0), -1)
+    cv.rectangle(img, bg[0], bg[1], (0, 40, 80), -1)
     cv.rectangle(img, bg[0], bg[1], color, 2)
-    cv.putText(img, text, (x + 5, y -padding), font, font_scale, (255, 255, 255), thick, cv.LINE_AA)
+    cv.putText(img, text, (x + 5, y -padding), font, font_scale, color, thick, cv.LINE_AA)
 
 def comparing(image_path, csv_path, image_id, model):
     # True image
@@ -86,9 +86,9 @@ def comparing(image_path, csv_path, image_id, model):
     plt.show()
 
 def main():
-    img_id = '790cb3d4c1819f9b2286c842c753bcbe'
-    img_path = "D:/Projects/spinexr_detection/data/yolo/images/train/790cb3d4c1819f9b2286c842c753bcbe.png"
-    csv_path = "D:/Projects/spinexr_detection/data/annotations_split/train.csv"
+    img_id = '00f61276be8d5f1067337de30bded315'
+    img_path = "D:/Projects/spinexr_detection/data/images/test_images/00f61276be8d5f1067337de30bded315.png"
+    csv_path = "D:/Projects/spinexr_detection/data/raw/annotations/test.csv"
 
     model = YOLO("D:/Projects/spinexr_detection/runs/detect/train/weights/best.pt")
 
