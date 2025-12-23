@@ -8,19 +8,18 @@ def train_yolo(data_yaml, epochs = 100, batch =4, imgsz = 640):
 
     # Huấn luyện YOLO + Tăng cường dữ liệu
     model.train(
-        data="data.yaml",
+        data=data_yaml,
         epochs=epochs,
         imgsz=imgsz,    
-        batch=batch,        
+        batch=batch,    
+        device = device,    
         degrees=10.0,
-        flipud=0.0,
         fliplr=0.5,
         mosaic=1.0,
         mixup=0.1,
-        hsv_s=0.0,
-        hsv_v=0.4,
-        clahe=0.5,
-        blur=0.1,
+        hsv_h=0.015,
+        hsv_s=0.7,
+        hsv_v=0.4
     )
     return model
 
