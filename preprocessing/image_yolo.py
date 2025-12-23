@@ -40,10 +40,8 @@ if __name__ == '__main__':
     parser.add_argument('--root-dir', required=True, type = str)
     parser.add_argument('--traincsv-file',required=True, type = str)
     parser.add_argument('--valcsv-file', required=True, type = str)
-    parser.add_argument('--testcsv-file', required=True, type = str)
     parser.add_argument('--train-dir', required=True, type = str)
     parser.add_argument('--val-dir', required=True, type = str)
-    parser.add_argument('--test-dir', required=True, type = str)
     parser.add_argument('--cpus', default=4, type = int)
 
     args = parser.parse_args()
@@ -51,18 +49,14 @@ if __name__ == '__main__':
     root_dir = args.root_dir
     train_dir = args.train_dir
     val_dir = args.val_dir
-    test_dir = args.test_dir
 
     traincsv_file = args.traincsv_file
     valcsv_file = args.valcsv_file
-    testcsv_file = args.testcsv_file
 
     os.makedirs(train_dir, exist_ok = True)
     os.makedirs(val_dir, exist_ok= True)
-    os.makedirs(test_dir, exist_ok = True )
 
     process(traincsv_file, root_dir, train_dir, n_jobs = args.cpus)
     process(valcsv_file, root_dir, val_dir, n_jobs = args.cpus)
-    process(testcsv_file, root_dir, test_dir, n_jobs = args.cpus)
 
 
