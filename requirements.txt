@@ -4,11 +4,11 @@ matplotlib
 scikit-learn
 scikit-image
 opencv-python
-torch
-torchvision
 pytorch-lightning
 pydicom
 ipykernel
 albumentations
 tqdm
 ultralytics
+##pytorch gpu cai rieng
+##pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
