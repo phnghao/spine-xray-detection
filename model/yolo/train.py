@@ -13,13 +13,36 @@ def train_yolo(data_yaml, epochs = 100, batch =4, imgsz = 640):
         imgsz=imgsz,    
         batch=batch,    
         device = device,    
-        degrees=10.0,
-        fliplr=0.5,
-        mosaic=1.0,
-        mixup=0.1,
-        hsv_h=0.015,
-        hsv_s=0.7,
-        hsv_v=0.4
+       
+        optimizer='SGD',
+        lr0=0.01,
+        momentum=0.937,
+        weight_decay=5e-4,
+        warmup_epochs=5,
+
+        mosaic=0.0,
+        mixup=0.0,
+        degrees=0.0,
+        shear=0.0,
+        perspective=0.0,
+        fliplr=0.0,
+        flipud=0.0,
+
+        hsv_h=0.0,
+        hsv_s=0.0,
+        hsv_v=0.0,
+
+        scale=0.05,
+        translate=0.05,
+
+        box=7.5,
+        cls=0.5,
+        dfl=1.5,
+
+        patience=30,
+        close_mosaic=10,
+        workers=8,
+        cache=False
     )
     return model
 
