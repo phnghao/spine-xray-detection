@@ -4,7 +4,7 @@ import argparse
 
 def train_yolo(data_yaml, epochs = 100, batch =4, imgsz = 640):
     device = 0 if torch.cuda.is_available() else 'cpu'
-    model = YOLO('yolov8x.pt')
+    model = YOLO('yolov8s.pt')
 
     # Huấn luyện YOLO + Tăng cường dữ liệu
     model.train(
@@ -32,7 +32,6 @@ def train_yolo(data_yaml, epochs = 100, batch =4, imgsz = 640):
         cls=0.5,
         dfl=1.5,
     )
-
     return model
 
 def main():
