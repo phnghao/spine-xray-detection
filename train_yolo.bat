@@ -3,7 +3,7 @@
 set YAML=./data/yolo/data.yaml
 set EPOCHS=180
 set BATCH_SIZE=16
-set IMGSZ=1280
+set IMGSZ=1024
 
 python -m model.yolo.train ^
     --yaml-file %YAML% ^
